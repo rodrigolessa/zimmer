@@ -1,0 +1,37 @@
+﻿<#@ Include File="TemplateHeader.t4" #>
+<#@ Modeling ElementType="Microsoft.VisualStudio.Uml.Classes.IClass" Processor="ModelingProcessor" ApplyStereotypes="CSharp" #>
+<#@ Import Namespace="Microsoft.VisualStudio.Uml.AuxiliaryConstructs" #>
+<#@ Import Namespace="Microsoft.VisualStudio.Uml.Classes" #>
+<#@ Import Namespace="Microsoft.VisualStudio.ArchitectureTools.Extensibility.Uml" #>
+<#@ Include File="CSharpCommentHelpers.t4" #>
+<#@ Include File="CSharpHelpers.t4" #>
+<#@ Output Extension=".cs" #>
+
+<# 
+    string classNamespace = GetNamespace(this.Element.Namespace) + ".Infraestrutura.Persistencia.Repository";
+    string nomeInterface = this.Element.Name.ToString() + "Repository";
+#>
+
+using BSI.Zimmer.Dominio;
+using BSI.Zimmer.Dominio.Entity;
+using BSI.Zimmer.Infraestrutura.Persistencia.UnitOfWork;
+using BSI.Zimmer.Dominio.Repository;
+
+namespace <#= classNamespace #>
+{
+    public partial class <#=nomeInterface#> :Repository<<#=this.Element.Name#>>, I<#=nomeInterface#>
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Cria uma Nova Instância
+        /// </summary>
+        /// <param name="unitOfWork">Associado ao Unit Of Work</param>
+        public <#=nomeInterface#>(MainUnitOfWork unitOfWork)
+            : base(unitOfWork)
+        {
+        }
+
+        #endregion
+    }
+}

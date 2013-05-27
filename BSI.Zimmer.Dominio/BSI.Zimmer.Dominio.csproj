@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E6A81254-12E2-4B6A-9A86-482161E5B3D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BSI.Zimmer.Dominio</RootNamespace>
+    <AssemblyName>BSI.Zimmer.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Homologação|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Homologação\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Fresenius.Exemplo.Dominio.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Produção|AnyCPU'">
+    <OutputPath>bin\Produção\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Fresenius.Exemplo.Dominio.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\CodigoGerado\Artefato.cs" />
+    <Compile Include="Entity\CodigoGerado\Avaliacao.cs" />
+    <Compile Include="Entity\CodigoGerado\CategoriaQuestao.cs" />
+    <Compile Include="Entity\CodigoGerado\CheckList.cs" />
+    <Compile Include="Entity\CodigoGerado\Cliente.cs" />
+    <Compile Include="Entity\CodigoGerado\EntityBase.cs" />
+    <Compile Include="Entity\CodigoGerado\Enum\Conformidade.cs" />
+    <Compile Include="Entity\CodigoGerado\Enum\PerfilAcesso.cs" />
+    <Compile Include="Entity\CodigoGerado\Projeto.cs" />
+    <Compile Include="Entity\CodigoGerado\Questao.cs" />
+    <Compile Include="Entity\CodigoGerado\QuestaoAvaliada.cs" />
+    <Compile Include="Entity\CodigoGerado\Usuario.cs" />
+    <Compile Include="Entity\Usuario.Partial.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="ISql.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Entity\EntityBase.Partial.cs" />
+    <Compile Include="Entity\Artefato.Partial.cs" />
+    <Compile Include="IdentityGenerator.cs" />
+    <Compile Include="IQueryableUnitOfWork.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Repository\CodigoGerado\IArtefatoRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IAvaliacaoRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\ICategoriaQuestaoRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\ICheckListRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IClienteRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IEntityBaseRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IProjetoRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IQuestaoAvaliadaRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IQuestaoRepository.cs" />
+    <Compile Include="Repository\CodigoGerado\IUsuarioRepository.cs" />
+    <Compile Include="Services\Tarefas\UsuarioService.cs" />
+    <Compile Include="Specification\AndSpecification.cs" />
+    <Compile Include="Specification\CompositeSpecification.cs" />
+    <Compile Include="Specification\DirectSpecification.cs" />
+    <Compile Include="Specification\ExpressionBuilder.cs" />
+    <Compile Include="Specification\NotSpecification.cs" />
+    <Compile Include="Specification\OrSpecification.cs" />
+    <Compile Include="Specification\ParameterRebinder.cs" />
+    <Compile Include="Specification\Specification.cs" />
+    <Compile Include="Specification\ISpecification.cs" />
+    <Compile Include="Specification\TrueSpecification.cs" />
+    <Compile Include="ValueObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Agregadores\" />
+    <Folder Include="Services\Workflow\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BSI.Zimmer.Infraestrutura.Comuns\BSI.Zimmer.Infraestrutura.Comuns.csproj">
+      <Project>{b4c6d472-18aa-4fd5-91eb-d89d04c51cc8}</Project>
+      <Name>BSI.Zimmer.Infraestrutura.Comuns</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

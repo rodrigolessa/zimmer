@@ -1,0 +1,169 @@
+﻿<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        var viewModel = {
+            nome: ko.observable("Marcus"),
+            ultimoNome: ko.observable("Dorbação"),
+            amigos: ko.observableArray([new amigo("Raquel", true), new amigo("Leopoldo", true)]),
+            addAmigo: function () {
+                this.amigos.push(new amigo(viewModel.fullName(), viewModel.isCanDelete));
+            },
+            isCanDelete: ko.observable(false),
+            salvar: function () { doAjx("@Url.Action("Salvar")", this); }
+
+
+        };
+
+        function amigo(nomeAmigo, podeDeletar) {
+            return {
+                nome: ko.observable(nomeAmigo),
+                isCanDelete: ko.observable(podeDeletar),
+                removeAmigo: function () {
+                    viewModel.amigos.remove(this);
+                }
+            };
+        }
+
+        viewModel.fullName = ko.dependentObservable(function () {
+            return this.nome() + " " + this.ultimoNome();
+        }, viewModel);
+
+        ko.applyBindings(viewModel);
+    });
+</script>
+
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit" style="padding-top: 10px; padding-bottom: 2px;">
+
+                <div class="row">
+                    <div class="span5">
+                        <div class="btn-group">
+                            <select class="btn dropdown-toggle" data-toggle="dropdown">
+                                <option selected>Cliente</option>
+                                <option>T1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="span5">
+                        <div class="btn-group">
+                            <select class="btn dropdown-toggle" data-toggle="dropdown">
+                                <option selected>Projeto</option>
+                                <option>T2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <button class="btn">
+                            <i class="icon-search"></i>Filtrar                                    
+                        </button>
+                    </div>
+                    <h3>Amigos(<span data-bind="text: amigos().length"></span>)</h3>
+                    <p>
+                        Nome:
+                            <input data-bind="value: nome" />
+                    </p>
+                    <p>
+                        Ultimo Nome:
+                            <input data-bind="value: ultimoNome" />
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                        Nome Completo:
+                            <input data-bind="value: fullName" />
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" data-bind="checked: isCanDelete" />
+                            pode ser excluido</label>
+                    </p>
+                    <p>
+                        <button data-bind="click: addAmigo, enable: amigos().length < 5">Adicionar</button>
+                    </p>
+
+                    <p>
+                        <button data-bind="click: salvar">Salvar</button>
+
+                    </p>
+
+                    <p>
+                        <ul data-bind="foreach: amigos">
+                            <li><b data-bind="text: nome"></b>-
+                                <button data-bind="click: removeAmigo, visible: isCanDelete">Remove</button></li>
+                        </ul>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!--Inicio GRID -->
+            <div class="row-fluid">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Check List</th>
+                            <th>Artefato</th>
+                            <th>Total Questões</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Teste</td>
+                            <td>T1</td>
+                            <td>T1</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" href="#"><i class="icon-cog icon-white"></i>AÇÃO</a>
+                                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="icon-check"></i>Executar</a></li>
+                                        <li><a href="#"><i class="icon-thumbs-up"></i>Qualidade</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>T2</td>
+                            <td>T2</td>
+                            <td>T2</td>
+                            <td>
+                                <a class="btn btn-primary" href="#"><i class="icon-check icon-white"></i>Executar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>T3</td>
+                            <td>T3</td>
+                            <td>T3</td>
+                            <td>
+                                <a class="btn btn-primary" href="#"><i class="icon-thumbs-up icon-white"></i>Qualidade</a>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Final da Grid -->
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+</div>
+<!--/.fluid-container-->
+
+</body>
+</html>

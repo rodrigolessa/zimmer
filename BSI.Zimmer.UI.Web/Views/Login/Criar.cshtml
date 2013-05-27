@@ -1,0 +1,63 @@
+﻿@model BSI.Zimmer.UI.Web.Controller.ViewModel.CriarViewModel
+
+@Scripts.Render("~/bundles/ViewModel")
+
+@{
+    Layout = "~/Views/Shared/_LayoutNaoAutenticado.cshtml";
+}
+
+@section Scripts
+{
+    <script>
+
+        var config = {
+            urlDefinirPerfil : "@Url.Action("Salvar")",
+            urlDashBoard : "@Url.Action("Index","DashBoard")",
+            initialData : @Html.Raw(Json.Encode(Model))
+            };
+
+        jQuery(document).ready(function () {
+            ko.applyBindings(new CriarViewModel(config.initialData));
+        });
+    </script>
+}
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit" style="padding-top: 10px; padding-bottom: 2px;">
+
+                <div class="row">
+                    <div class="hero-unit">
+                        <h1>Bem vindo ao Zimmer !</h1>
+                        <p>Caso não saiba o que fazer aqui fale com o @@leonardo.santana ele senta ali no canto dos analistas.</p>
+                        <p>Bem, para começar responda as perguntas abaixo:</p>
+                        <p>
+                            <input type="text" data-bind="value: Login" class="input-block-level" placeholder="Seu login">
+                            <input type="text" data-bind="value: Nome" class="input-block-level" placeholder="Seu nome completo">
+                            <input type="password" data-bind="value: Senha" class="input-block-level" placeholder="Sua senha">
+                            <input type="password" data-bind="value: ConfirmaSenha" class="input-block-level" placeholder="Confirme sua Senha">
+                        </p>
+
+                        <select data-bind="options: Perfis, optionsText: 'Descricao', value: PerfilAcesso" ></select>
+                        
+                        <p>
+                            <button class="btn btn-large btn-primary" data-bind="click: Salvar" type="submit">Salvar</button>
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+</div>
+<!--/.fluid-container-->

@@ -1,0 +1,23 @@
+﻿<#@ Include File="TemplateHeader.t4" #>
+<#@ Modeling ElementType="Microsoft.VisualStudio.Uml.Classes.IClass" Processor="ModelingProcessor" ApplyStereotypes="CSharp" #>
+<#@ Import Namespace="Microsoft.VisualStudio.Uml.AuxiliaryConstructs" #>
+<#@ Import Namespace="Microsoft.VisualStudio.Uml.Classes" #>
+<#@ Import Namespace="Microsoft.VisualStudio.ArchitectureTools.Extensibility.Uml" #>
+<#@ Include File="CSharpCommentHelpers.t4" #>
+<#@ Include File="CSharpHelpers.t4" #>
+<#@ Output Extension=".cs" #>
+
+<# 
+    string classNamespace = GetNamespace(this.Element.Namespace) + ".Dominio.Repository";
+    string nomeInterface = "I" + this.Element.Name.ToString() + "Repository";
+    
+#>
+using BSI.Zimmer.Dominio.Entity;
+
+namespace <#= classNamespace #>
+{    
+    public interface <#=nomeInterface#> :IRepository<<#=this.Element.Name#>>
+    {
+        
+    }
+}

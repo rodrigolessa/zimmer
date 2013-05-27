@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Zimmer, um faz tudo da BSI</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>    
+
+    <div class="container-fluid" data-bind="visible: HasSuccess">
+        <div class="row-fluid">
+                <div class="alert alert-success">                
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4><span data-bind="text: Titulo"></span></h4>
+                <span data-bind="text: Mensagem"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" data-bind="visible: HasError">
+        <div class="row-fluid">
+                <div class="alert alert-error">                
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4><span data-bind="text: Titulo"></span></h4>
+                <span data-bind="text: Mensagem"></span>
+            </div>
+        </div>
+    </div>
+
+
+    @RenderSection("featured", required: false)
+    @RenderBody()
+
+
+</body>
+</html>
